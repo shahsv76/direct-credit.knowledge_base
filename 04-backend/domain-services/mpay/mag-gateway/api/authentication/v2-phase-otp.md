@@ -46,11 +46,11 @@ updated: "2026-10-22"
 | Authentication Service ⏳ | `AUTHENTICATION_URL` | POST  | `/api/v3/create_new_pin_token` |
 
 ## Метрика
-| Параметр        | Значение                                                                       |
-| --------------- | ------------------------------------------------------------------------------ |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`) + `SOPSign` (`metrics.MetricSOPSign`) |
-| **Топик**       | `auth`                                                                         |
-| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOTP() N`                         |
+| Параметр        | Значение                                                                                                               |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`) + [`SOPSign`](../../metrics.md) (`metrics.MetricSOPSign`) |
+| **Топик**       | `auth`                                                                                                                 |
+| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOTP() N`                                                                 |
 
 ## Логика работы
 1. **Приём и валидация:** MAG принимает запрос и валидирует поля `code`, `xOTPToken`, `agreements`.

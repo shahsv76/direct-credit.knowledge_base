@@ -51,14 +51,14 @@ updated: "2026-10-22"
 | Authentication Service ⏳ | `AUTHENTICATION_URL` | POST  | `/api/v3/fact_sms_send`          |
 
 ## Метрика
-| Параметр        | Значение                                  |
-| --------------- | ----------------------------------------- |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`)  |
-| **Топик**       | `auth`                                    |
-| **vendor**      | `mpay-api-gateway handler.Otp.Resend() N` |
+| Параметр        | Значение                                                     |
+| --------------- | ------------------------------------------------------------ |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`) |
+| **Топик**       | `auth`                                                       |
+| **vendor**      | `mpay-api-gateway handler.Otp.Resend() N`                    |
 
 ## Логика работы
-1. **Приём и валидация:** MAG принимает запрос и валидирует поле `xOTPToken`.
+1. **Приём и валидация:** MAG принимает запрос и валидирует поле `xOTPToken`. Если валидация не прошла — возвращается код `400` BAD_REQUEST.
 2. **Проверка блокировки:** Вызывает Authentication Service (`/api/v3/check_sms_block_resend`). При ошибке — ответ 500.
 3. **Внешний вызов:** Вызывает OTP Service (`/otp/resend`) для повторной отправки кода. Если OTP-сервис вернул `429` или `460` — MAG отвечает `403` с объектом [`AuthenticationPhaseOneBadResponse`](./enums.md#authenticationphaseonebadresponse), время блокировки — `TimeBlockResend` часов.
 4. **Сохранение факта:** Вызывает Authentication Service (`/api/v3/fact_sms_send`), чтобы зафиксировать отправку SMS.
