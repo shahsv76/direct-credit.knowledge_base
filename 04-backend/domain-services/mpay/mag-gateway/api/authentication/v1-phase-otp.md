@@ -47,11 +47,11 @@ updated: "2026-10-22"
 | Authorization Service ⏳ | `AUTHORIZATION_URL`  | POST  | `/api/v1/create_token`            |
 
 ## Метрика
-| Параметр        | Значение                                                    |
-| --------------- | ----------------------------------------------------------- |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`)                    |
-| **Топик**       | `auth`                                                      |
-| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOTPShort() N` |
+| Параметр        | Значение                                                     |
+| --------------- | ------------------------------------------------------------ |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`) |
+| **Топик**       | `auth`                                                       |
+| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOTPShort() N`  |
 
 ## Логика работы
 1. **Приём и валидация:** MAG принимает запрос и валидирует поля `code`, `xOTPToken`, `agreements`.

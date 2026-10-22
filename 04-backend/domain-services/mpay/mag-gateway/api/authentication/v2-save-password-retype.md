@@ -48,7 +48,7 @@ updated: "2026-10-22"
 ## Метрика
 | Параметр        | Значение                                                         |
 | --------------- | ---------------------------------------------------------------- |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`)                         |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`)     |
 | **Топик**       | `auth`                                                           |
 | **vendor**      | `mpay-api-gateway handler.Authentication.SavePasswordRetype() N` |
 

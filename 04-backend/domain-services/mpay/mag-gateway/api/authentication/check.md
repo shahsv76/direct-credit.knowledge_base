@@ -47,11 +47,11 @@ updated: "2026-10-22"
 | OTP Service ⏳            | `OTP_URL`            | POST  | `/otp/v2/send`        |
 
 ## Метрика
-| Параметр        | Значение                                                 |
-| --------------- | -------------------------------------------------------- |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`)                 |
-| **Топик**       | `auth`                                                   |
-| **vendor**      | `mpay-api-gateway handler.Authentication.CheckToken() N` |
+| Параметр        | Значение                                                     |
+| --------------- | ------------------------------------------------------------ |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`) |
+| **Топик**       | `auth`                                                       |
+| **vendor**      | `mpay-api-gateway handler.Authentication.CheckToken() N`     |
 
 ## Логика работы
 1. **Приём и валидация:** MAG принимает запрос, валидирует поля `secret` и `token`.

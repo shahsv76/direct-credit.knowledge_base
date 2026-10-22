@@ -59,11 +59,11 @@ updated: "2026-10-22"
 | Authentication Service ⏳ | `AUTHENTICATION_URL` | POST  | `/api/v3/create_pin_token`        |
 
 ## Метрика
-| Параметр        | Значение                                               |
-| --------------- | ------------------------------------------------------ |
-| **Имя метрики** | `Login User` (`metrics.MetricLoginUser`)               |
-| **Топик**       | `auth`                                                 |
-| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOne() N` |
+| Параметр        | Значение                                                     |
+| --------------- | ------------------------------------------------------------ |
+| **Имя метрики** | [`Login User`](../../metrics.md) (`metrics.MetricLoginUser`) |
+| **Топик**       | `auth`                                                       |
+| **vendor**      | `mpay-api-gateway handler.Authentication.PhaseOne() N`       |
 
 ## Логика работы
 1. **Приём и валидация:** MAG принимает запрос и валидирует поле `token`.
