@@ -9,14 +9,14 @@
 | Проверка токена AUTH1                     | POST | `/authentication/check`                       | [`check.md`](./check.md)                                     |
 | Короткая проверка токена с выдачей сессии | POST | `/authentication/check_short`                 | [`check-short.md`](./check-short.md)                         |
 | Повторная отправка OTP                    | POST | `/authentication/resend`                      | [`resend.md`](./resend.md)                                   |
-| Первая фаза авторизации v1                | POST | `/api/v1/authentication/phase_one`            | [`v1-phase-one.md`](./v1-phase-one.md)                       |
-| Вторая фаза авторизации v1 (OTP)          | POST | `/api/v1/authentication/phase_otp`            | [`v1-phase-otp.md`](./v1-phase-otp.md)                       |
-| Первая фаза авторизации v2                | POST | `/api/v2/authentication/phase_one`            | [`v2-phase-one.md`](./v2-phase-one.md)                       |
-| Вторая фаза авторизации v2 (OTP)          | POST | `/api/v2/authentication/phase_otp`            | [`v2-phase-otp.md`](./v2-phase-otp.md)                       |
-| Сохранение пароля                         | POST | `/api/v2/authentication/save_password`        | [`v2-save-password.md`](./v2-save-password.md)               |
-| Проверка и сохранение пароля с повтором   | POST | `/api/v2/authentication/save_password_retype` | [`v2-save-password-retype.md`](./v2-save-password-retype.md) |
-| Авторизация по паролю                     | POST | `/api/v2/authentication/phase_auth`           | [`v2-phase-auth.md`](./v2-phase-auth.md)                     |
-| Восстановление пароля                     | POST | `/api/v2/authentication/forgot_password`      | [`v2-forgot-password.md`](./v2-forgot-password.md)           |
+| Первая фаза авторизации v1                | POST | `/api/v1/authentication/phase_one`            | [`phase-one-v1.md`](./phase-one-v1.md)                       |
+| Вторая фаза авторизации v1 (OTP)          | POST | `/api/v1/authentication/phase_otp`            | [`phase-otp.md`](./phase-otp-v1.md)                          |
+| Первая фаза авторизации v2                | POST | `/api/v2/authentication/phase_one`            | [`phase-one-v2.md`](./phase-one-v2.md)                       |
+| Вторая фаза авторизации v2 (OTP)          | POST | `/api/v2/authentication/phase_otp`            | [`phase-otp-v2.md`](./phase-otp-v2.md)                       |
+| Сохранение пароля                         | POST | `/api/v2/authentication/save_password`        | [`save-password-v2.md`](./save-password-v2.md)               |
+| Проверка и сохранение пароля с повтором   | POST | `/api/v2/authentication/save_password_retype` | [`save-password-retype-v2.md`](./save-password-retype-v2.md) |
+| Авторизация по паролю                     | POST | `/api/v2/authentication/phase_auth`           | [`phase-auth-v2.md`](./phase-auth-v2.md)                     |
+| Восстановление пароля                     | POST | `/api/v2/authentication/forgot_password`      | [`forgot-password-v2.md`](./forgot-password-v2.md)           |
 
 ## Справочники
 
