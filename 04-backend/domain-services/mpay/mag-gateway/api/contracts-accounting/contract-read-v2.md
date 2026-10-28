@@ -34,28 +34,28 @@ updated: "2026-10-23"
 > ℹ️ Регистр названий полей не важен: `Meta` и `meta` обрабатываются одинаково.
 
 ## Выходные параметры
-| Название                                  | Тип           | Обязательность | Описание                                                                                       | Пример             |
-| ----------------------------------------- | ------------- | -------------- | ---------------------------------------------------------------------------------------------- | ------------------ |
-| `meta.Accept`                             | String        | Да             | Признак успешной обработки [`AccountingMetaResponse`](./general-dto.md#accountingmetaresponse) | `OK`               |
-| `meta.Error`                              | String        | Нет            | Текст ошибки                                                                                   | `""`               |
-| `payload.Contract.bankName`               | String        | Да             | Наименование банка                                                                             | `ОТП Банк`         |
-| `payload.Contract.bankCode`               | String        | Да             | Код банка                                                                                      | `otp`              |
-| `payload.Contract.appID`                  | String        | Да             | Код кредитного продукта банка                                                                  | `OTP-CASH`         |
-| `payload.Contract.clientAccountNum`       | String        | Нет            | Номер счёта клиента (в текущей логике передаётся пустым)                                       | `""`               |
-| `payload.Contract.accountRequestID`       | String        | Да             | Идентификатор заявки                                                                           | `12345`            |
-| `payload.Contract.bankContractNum`        | String        | Да             | Номер договора в банке                                                                         | `OTP-2026-000123`  |
-| `payload.Contract.dateConfirm`            | String        | Да             | Дата подтверждения договора                                                                    | `2026-10-01`       |
-| `payload.Contract.termMonth`              | Integer       | Да             | Срок договора в месяцах                                                                        | `12`               |
-| `payload.Contract.contractAmountKop`      | Integer       | Да             | Сумма договора в копейках                                                                      | `15000000`         |
-| `payload.Contract.monthlyAmountKop`       | Integer       | Да             | Ежемесячный платёж в копейках                                                                  | `1250000`          |
-| `payload.Contract.clientID`               | String        | Да             | Идентификатор клиента                                                                          | `client-123`       |
-| `payload.Contract.partnerID`              | String        | Да             | Идентификатор партнёра                                                                         | `dcpay-mobile`     |
-| `payload.Contract.createdBy`              | String        | Нет            | Система-источник записи                                                                        | `mpay-api-gateway` |
-| `payload.Contract.createdByOp`            | String        | Нет            | Операция-источник записи                                                                       | `request: 12345`   |
-| `payload.Contract.schedule`               | Array<Object> | Да             | График платежей                                                                                | `[]`               |
-| `payload.Contract.schedule[].payID`       | Integer       | Да             | Идентификатор платежа                                                                          | `4567`             |
-| `payload.Contract.schedule[].paymentDate` | String        | Да             | Плановая дата платежа                                                                          | `2026-11-05`       |
-| `payload.Contract.schedule[].amountKop`   | Integer       | Да             | Плановая сумма в копейках                                                                      | `1250000`          |
+| Название                                                            | Тип           | Обязательность | Описание                                                 | Пример                            |
+| ------------------------------------------------------------------- | ------------- | -------------- | -------------------------------------------------------- | --------------------------------- |
+| 🔗 [AccountingMetaResponse](./general-dto.md#accountingmetaresponse) | Object        | Да             | Метаданные ответа: признак успеха и текст ошибки         | `{ "Accept": "OK", "Error": "" }` |
+| `payload.Contract`                                                  | Object        | Да             | Карточка договора                                        | `{ ... }`                         |
+| `payload.Contract.bankName`                                         | String        | Да             | Наименование банка                                       | `ОТП Банк`                        |
+| `payload.Contract.bankCode`                                         | String        | Да             | Код банка                                                | `otp`                             |
+| `payload.Contract.appID`                                            | String        | Да             | Код кредитного продукта банка                            | `OTP-CASH`                        |
+| `payload.Contract.clientAccountNum`                                 | String        | Нет            | Номер счёта клиента (в текущей логике передаётся пустым) | `""`                              |
+| `payload.Contract.accountRequestID`                                 | String        | Да             | Идентификатор заявки                                     | `12345`                           |
+| `payload.Contract.bankContractNum`                                  | String        | Да             | Номер договора в банке                                   | `OTP-2026-000123`                 |
+| `payload.Contract.dateConfirm`                                      | String        | Да             | Дата подтверждения договора                              | `2026-10-01`                      |
+| `payload.Contract.termMonth`                                        | Integer       | Да             | Срок договора в месяцах                                  | `12`                              |
+| `payload.Contract.contractAmountKop`                                | Integer       | Да             | Сумма договора в копейках                                | `15000000`                        |
+| `payload.Contract.monthlyAmountKop`                                 | Integer       | Да             | Ежемесячный платёж в копейках                            | `1250000`                         |
+| `payload.Contract.clientID`                                         | String        | Да             | Идентификатор клиента                                    | `client-123`                      |
+| `payload.Contract.partnerID`                                        | String        | Да             | Идентификатор партнёра                                   | `dcpay-mobile`                    |
+| `payload.Contract.createdBy`                                        | String        | Нет            | Система-источник записи                                  | `mpay-api-gateway`                |
+| `payload.Contract.createdByOp`                                      | String        | Нет            | Операция-источник записи                                 | `request: 12345`                  |
+| `payload.Contract.schedule`                                         | Array<Object> | Да             | График платежей                                          | `[]`                              |
+| `payload.Contract.schedule[].payID`                                 | Integer       | Да             | Идентификатор платежа                                    | `4567`                            |
+| `payload.Contract.schedule[].paymentDate`                           | String        | Да             | Плановая дата платежа                                    | `2026-11-05`                      |
+| `payload.Contract.schedule[].amountKop`                             | Integer       | Да             | Плановая сумма в копейках                                | `1250000`                         |
 
 ## Коды ответа
 | Код ответа | Описание              | Причина                                                                         |

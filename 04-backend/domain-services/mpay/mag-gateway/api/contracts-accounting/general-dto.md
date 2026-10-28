@@ -30,16 +30,6 @@ updated: "2026-10-23"
 | `client_id`  | String | Да             | Идентификатор клиента  | `client-123`   |
 | `partner_id` | String | Да             | Идентификатор партнёра | `dcpay-mobile` |
 
-### AccountingFilter
-Набор фильтров для выборки договоров и типов предложений. Используется в методах `GET /api/v1/contracts` и `GET /api/v1/offer/types` (значения по умолчанию берутся из конфигурации, см. [ENUM и константы](./enums.md)).
-
-| Название           | Тип           | Обязательность | Описание                 | Пример                    |
-| ------------------ | ------------- | -------------- | ------------------------ | ------------------------- |
-| `partnerIDs[]`     | Array<String> | Нет            | Ограничение по партнёрам | `["dcpay-mobile"]`        |
-| `statusCodes[]`    | Array<String> | Нет            | Статусы договоров        | `["AGREEMENT_AUTORIZED"]` |
-| `offerTypeCodes[]` | Array<String> | Нет            | Типы предложений         | `["MFO_CASH"]`            |
-| `bankCodes[]`      | Array<String> | Нет            | Коды банков              | `["otp"]`                 |
-
 ### AccountingMetaResponse
 Стандартный блок метаданных ответов Accounting Service. Возвращается практически во всех методах группы.
 
@@ -56,35 +46,16 @@ updated: "2026-10-23"
 | `message` | String  | Да             | Текст ошибки                                       | `response.StatusCode 500` |
 | `status`  | Boolean | Да             | Признак успеха операции, при ошибке всегда `false` | `false`                   |
 
-### ScheduleResponseV1
-График платежей по договору. Возвращается в методе `GET /api/v1/schedule/read` и используется при сборке карточки договора в методе `POST /api/v2/contract/read`.
+### AccountingContractItem
+Элемент списка договоров клиента. Используется в методах: `GET /api/v1/contracts`, `GET /api/v1/contracts/all`, `POST /api/v1/contracts/read`, `POST /api/v2/contracts/read`.
 
-| Название                   | Тип           | Обязательность | Описание                  | Пример                 |
-| -------------------------- | ------------- | -------------- | ------------------------- | ---------------------- |
-| `scheduleID`               | Integer       | Да             | Идентификатор графика     | `98765`                |
-| `bankCode`                 | String        | Да             | Код банка                 | `otp`                  |
-| `bankName`                 | String        | Да             | Наименование банка        | `ОТП Банк`             |
-| `bankAccountNum`           | String        | Нет            | Номер банковского счёта   | `40817810099910004312` |
-| `bankContractNum`          | String        | Да             | Номер договора в банке    | `OTP-2026-000123`      |
-| `payments`                 | Array<Object> | Да             | Список плановых платежей  | `[]`                   |
-| `payments[].payID`         | Integer       | Да             | Идентификатор платежа     | `4567`                 |
-| `payments[].planDate`      | String        | Да             | Плановая дата платежа     | `2026-11-05`           |
-| `payments[].planAmountKop` | Integer       | Да             | Плановая сумма в копейках | `1250000`              |
-
-### PaymentResponse
-Данные платежа с банковскими реквизитами. Возвращается в методе `GET /api/v1/payment/read` и используется при сборке карточки договора в методе `POST /api/v2/contract/read`.
-
-| Название                  | Тип     | Обязательность | Описание                                                          | Пример                 |
-| ------------------------- | ------- | -------------- | ----------------------------------------------------------------- | ---------------------- |
-| `payment.payID`           | Integer | Да             | Идентификатор платежа                                             | `4567`                 |
-| `payment.scheduleID`      | Integer | Да             | Идентификатор графика                                             | `98765`                |
-| `payment.planDate`        | String  | Да             | Плановая дата платежа                                             | `2026-11-05`           |
-| `payment.planAmountKop`   | Integer | Да             | Плановая сумма в копейках                                         | `1250000`              |
-| `payment.bankCode`        | String  | Да             | Код банка                                                         | `otp`                  |
-| `payment.bankCreditCode`  | String  | Да             | Код кредитного продукта банка (используется как `appID` договора) | `OTP-CASH`             |
-| `payment.bankName`        | String  | Да             | Наименование банка                                                | `ОТП Банк`             |
-| `payment.bankINN`         | String  | Нет            | ИНН банка                                                         | `7712040126`           |
-| `payment.bankKPP`         | String  | Нет            | КПП банка                                                         | `771201001`            |
-| `payment.bankBIK`         | String  | Нет            | БИК банка                                                         | `044525311`            |
-| `payment.bankAccountNum`  | String  | Да             | Номер счёта для оплаты                                            | `40817810099910004312` |
-| `payment.bankContractNum` | String  | Да             | Номер договора в банке                                            | `OTP-2026-000123`      |
+| Название           | Тип      | Обязательность | Описание                       | Пример                 |
+| ------------------ | -------- | -------------- | ------------------------------ | ---------------------- |
+| `bankContractNum`  | String   | Да             | Номер договора в банке         | `OTP-2026-000123`      |
+| `dateConfirm`      | DateTime | Да             | Дата подтверждения договора    | `2026-10-01T12:00:00Z` |
+| `bankCode`         | String   | Да             | Код банка                      | `otp`                  |
+| `offerTypeCode`    | String   | Да             | Код типа предложения           | `MFO_CASH`             |
+| `status`           | String   | Да             | Статус договора                | `AGREEMENT_AUTORIZED`  |
+| `clientID`         | String   | Да             | Идентификатор клиента          | `client-123`           |
+| `partnerID`        | String   | Да             | Идентификатор партнёра         | `dcpay-mobile`         |
+| `accountRequestID` | String   | Да             | Идентификатор заявки на кредит | `12345`                |

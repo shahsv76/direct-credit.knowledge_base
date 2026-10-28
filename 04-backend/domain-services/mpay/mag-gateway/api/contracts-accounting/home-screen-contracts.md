@@ -39,6 +39,7 @@ updated: "2026-10-23"
 | `contracts[].clientID`                            | String        | Да             | Идентификатор клиента                     | `client-123`                   |
 | `contracts[].partnerID`                           | String        | Да             | Идентификатор партнёра                    | `dcpay-mobile`                 |
 | `contracts[].accountRequestID`                    | String        | Да             | Идентификатор заявки                      | `12345`                        |
+| `contracts[].contract`                            | Object        | Да             | Данные договора для главного экрана       | `{ ... }`                      |
 | `contracts[].contract.bankCode`                   | String        | Да             | Код банка                                 | `otp`                          |
 | `contracts[].contract.offerTypeCode`              | String        | Да             | Код типа предложения                      | `MFO_CASH`                     |
 | `contracts[].contract.dateConfirm`                | String        | Да             | Дата подтверждения договора               | `2026-10-01`                   |

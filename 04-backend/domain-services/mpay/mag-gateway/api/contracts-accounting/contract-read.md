@@ -33,26 +33,26 @@ updated: "2026-10-23"
 Тело запроса не используется. Данные клиента берутся из сессии ([`GeneralData`](./general-dto.md#generaldata)).
 
 ## Выходные параметры
-| Название                                   | Тип     | Обязательность | Описание                                          | Пример                           |
-| ------------------------------------------ | ------- | -------------- | ------------------------------------------------- | -------------------------------- |
-| `meta.Accept`                              | String  | Да             | Признак успешной обработки                        | `OK`                             |
-| `meta.Error`                               | String  | Нет            | Текст ошибки                                      | `""`                             |
-| `payload.Contract.BankCode`                | String  | Да             | Код банка                                         | `otp`                            |
-| `payload.Contract.BankName`                | String  | Да             | Наименование банка                                | `ОТП Банк`                       |
-| `payload.Contract.BankAccountNum`          | String  | Да             | Номер счёта для оплаты                            | `40817810099910004312`           |
-| `payload.Contract.FIO`                     | String  | Да             | ФИО клиента                                       | `Иванов Иван Иванович`           |
-| `payload.Contract.SumAmountKop`            | Integer | Да             | Сумма договора в копейках                         | `15000000`                       |
-| `payload.Contract.MonthlyPaymentAmountKop` | Integer | Да             | Ежемесячный платёж в копейках                     | `1250000`                        |
-| `payload.Contract.CreatedAt`               | String  | Да             | Дата подтверждения договора                       | `2026-10-01`                     |
-| `payload.Contract.PassportSerial`          | String  | Да             | Серия паспорта                                    | `4510`                           |
-| `payload.Contract.PassportNum`             | String  | Да             | Номер паспорта                                    | `123456`                         |
-| `payload.Contract.Address`                 | String  | Да             | Адрес регистрации клиента                         | `г. Москва, ул. Примерная, д. 1` |
-| `payload.Contract.CountryOfResidence`      | String  | Да             | Страна проживания (всегда `Российская Федерация`) | `Российская Федерация`           |
-| `payload.Contract.CurrentPayAmountKop`     | Integer | Да             | Сумма текущего платежа в копейках                 | `1250000`                        |
-| `payload.Contract.TotalAmountKop`          | Integer | Да             | Итоговая сумма к оплате в копейках                | `1287000`                        |
-| `payload.Contract.FeeAmountKop`            | Integer | Да             | Комиссия в копейках                               | `37000`                          |
-| `payload.Contract.FeePercentMultiHundred`  | Integer | Да             | Процент комиссии (умноженный на 100)              | `295`                            |
-| `payload.Contract.FeeMinRub`               | Integer | Да             | Минимальная комиссия в рублях                     | `50`                             |
+| Название                                                            | Тип     | Обязательность | Описание                                          | Пример                            |
+| ------------------------------------------------------------------- | ------- | -------------- | ------------------------------------------------- | --------------------------------- |
+| 🔗 [AccountingMetaResponse](./general-dto.md#accountingmetaresponse) | Object  | Да             | Метаданные ответа: признак успеха и текст ошибки  | `{ "Accept": "OK", "Error": "" }` |
+| `payload.Contract`                                                  | Object  | Да             | Карточка договора                                 | `{ ... }`                         |
+| `payload.Contract.BankCode`                                         | String  | Да             | Код банка                                         | `otp`                             |
+| `payload.Contract.BankName`                                         | String  | Да             | Наименование банка                                | `ОТП Банк`                        |
+| `payload.Contract.BankAccountNum`                                   | String  | Да             | Номер счёта для оплаты                            | `40817810099910004312`            |
+| `payload.Contract.FIO`                                              | String  | Да             | ФИО клиента                                       | `Иванов Иван Иванович`            |
+| `payload.Contract.SumAmountKop`                                     | Integer | Да             | Сумма договора в копейках                         | `15000000`                        |
+| `payload.Contract.MonthlyPaymentAmountKop`                          | Integer | Да             | Ежемесячный платёж в копейках                     | `1250000`                         |
+| `payload.Contract.CreatedAt`                                        | String  | Да             | Дата подтверждения договора                       | `2026-10-01`                      |
+| `payload.Contract.PassportSerial`                                   | String  | Да             | Серия паспорта                                    | `4510`                            |
+| `payload.Contract.PassportNum`                                      | String  | Да             | Номер паспорта                                    | `123456`                          |
+| `payload.Contract.Address`                                          | String  | Да             | Адрес регистрации клиента                         | `г. Москва, ул. Примерная, д. 1`  |
+| `payload.Contract.CountryOfResidence`                               | String  | Да             | Страна проживания (всегда `Российская Федерация`) | `Российская Федерация`            |
+| `payload.Contract.CurrentPayAmountKop`                              | Integer | Да             | Сумма текущего платежа в копейках                 | `1250000`                         |
+| `payload.Contract.TotalAmountKop`                                   | Integer | Да             | Итоговая сумма к оплате в копейках                | `1287000`                         |
+| `payload.Contract.FeeAmountKop`                                     | Integer | Да             | Комиссия в копейках                               | `37000`                           |
+| `payload.Contract.FeePercentMultiHundred`                           | Integer | Да             | Процент комиссии (умноженный на 100)              | `295`                             |
+| `payload.Contract.FeeMinRub`                                        | Integer | Да             | Минимальная комиссия в рублях                     | `50`                              |
 
 ## Коды ответа
 | Код ответа | Описание              | Причина                                                                         |

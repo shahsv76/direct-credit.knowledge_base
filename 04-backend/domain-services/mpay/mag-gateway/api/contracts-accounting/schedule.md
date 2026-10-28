@@ -35,9 +35,20 @@ updated: "2026-10-23"
 ## Выходные параметры
 Ответ API Schedule проксируется без преобразования.
 
-| Название           | Тип    | Обязательность | Описание                                                              | Пример                    |
-| ------------------ | ------ | -------------- | --------------------------------------------------------------------- | ------------------------- |
-| Ответ API Schedule | Object | Да             | График платежей по заявке. Точная структура определяется API Schedule | `{ "schedule": { ... } }` |
+| Название                            | Тип           | Обязательность | Описание                            | Пример                 |
+| ----------------------------------- | ------------- | -------------- | ----------------------------------- | ---------------------- |
+| `schedule`                          | Object        | Да             | График платежей по заявке           | `{ ... }`              |
+| `schedule.scheduleID`               | Integer       | Да             | Идентификатор графика платежей      | `98765`                |
+| `schedule.bankCode`                 | String        | Да             | Код банка                           | `otp`                  |
+| `schedule.bankName`                 | String        | Да             | Наименование банка                  | `ОТП Банк`             |
+| `schedule.bankAccountNum`           | String        | Нет            | Номер счёта для оплаты              | `40817810099910004312` |
+| `schedule.bankContractNum`          | String        | Да             | Номер договора в банке              | `OTP-2026-000123`      |
+| `schedule.payments`                 | Array<Object> | Да             | Список плановых платежей по графику | `[]`                   |
+| `schedule.payments[].payID`         | Integer       | Да             | Идентификатор платежа               | `4567`                 |
+| `schedule.payments[].planDate`      | String        | Да             | Плановая дата платежа               | `2026-11-05`           |
+| `schedule.payments[].planAmountKop` | Integer       | Да             | Плановая сумма платежа в копейках   | `1250000`              |
+
+> ℹ️ Состав полей соответствует DTO `ScheduleResponseV1` (та же структура графика, что и в методе [`schedule-read.md`](./schedule-read.md)). MAG не преобразует ответ: его содержимое определяет API Schedule.
 
 ## Коды ответа
 | Код ответа | Описание              | Причина                                |
@@ -77,9 +88,14 @@ curl -X GET "https://gateway.direct-pay.ru/api/v1/schedule?accountRequestID=1234
 ```json
 {
   "schedule": {
-    "accountRequestID": "12345",
+    "scheduleID": 98765,
+    "bankCode": "otp",
+    "bankName": "ОТП Банк",
+    "bankAccountNum": "40817810099910004312",
+    "bankContractNum": "OTP-2026-000123",
     "payments": [
       {
+        "payID": 4567,
         "planDate": "2026-11-05",
         "planAmountKop": 1250000
       }
