@@ -32,19 +32,10 @@ updated: "2026-10-23"
 > ℹ️ Идентификатор клиента и партнёра берутся из сессии ([`GeneralData`](./general-dto.md#generaldata)). Если в сессии есть `mfoClientId`, он используется как идентификатор клиента вместо основного.
 
 ## Выходные параметры
-| Название                               | Тип           | Обязательность | Описание                                                                                       | Пример                 |
-| -------------------------------------- | ------------- | -------------- | ---------------------------------------------------------------------------------------------- | ---------------------- |
-| `meta.Accept`                          | String        | Да             | Признак успешной обработки [`AccountingMetaResponse`](./general-dto.md#accountingmetaresponse) | `OK`                   |
-| `meta.Error`                           | String        | Нет            | Текст ошибки                                                                                   | `""`                   |
-| `payload.Contracts`                    | Array<Object> | Да             | Список договоров клиента                                                                       | `[]`                   |
-| `payload.Contracts[].bankContractNum`  | String        | Да             | Номер договора в банке                                                                         | `OTP-2026-000123`      |
-| `payload.Contracts[].dateConfirm`      | DateTime      | Да             | Дата подтверждения договора                                                                    | `2026-10-01T12:00:00Z` |
-| `payload.Contracts[].bankCode`         | String        | Да             | Код банка                                                                                      | `otp`                  |
-| `payload.Contracts[].offerTypeCode`    | String        | Да             | Код типа предложения                                                                           | `MFO_CASH`             |
-| `payload.Contracts[].status`           | String        | Да             | Статус договора                                                                                | `AGREEMENT_AUTORIZED`  |
-| `payload.Contracts[].clientID`         | String        | Да             | Идентификатор клиента                                                                          | `client-123`           |
-| `payload.Contracts[].partnerID`        | String        | Да             | Идентификатор партнёра                                                                         | `dcpay-mobile`         |
-| `payload.Contracts[].accountRequestID` | String        | Да             | Идентификатор заявки                                                                           | `12345`                |
+| Название                                                            | Тип                                                                      | Обязательность | Описание                                         | Пример                                       |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------ | -------------- | ------------------------------------------------ | -------------------------------------------- |
+| 🔗 [AccountingMetaResponse](./general-dto.md#accountingmetaresponse) | Object                                                                   | Да             | Метаданные ответа: признак успеха и текст ошибки | `{ "Accept": "OK", "Error": "" }`            |
+| `payload.Contracts`                                                 | Array<[AccountingContractItem](./general-dto.md#accountingcontractitem)> | Да             | Список договоров клиента                         | `[{ "bankContractNum": "OTP-2026-000123" }]` |
 
 ## Коды ответа
 | Код ответа | Описание              | Причина                                                        |

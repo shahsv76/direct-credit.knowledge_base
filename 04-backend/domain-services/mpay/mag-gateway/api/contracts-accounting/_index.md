@@ -14,7 +14,7 @@ updated: "2026-10-23"
 
 | Метод                                       | HTTP | Эндпоинт                      | Файл                                                     |
 | ------------------------------------------- | ---- | ----------------------------- | -------------------------------------------------------- |
-| **[DEPRECATED]** Чтение списка договоров v1 | POST | `/api/v1/contracts/read`      | [`v1-contracts-read.md`](./v1-contracts-read.md)         |
+| **[DEPRECATED]** Чтение списка договоров v1 | POST | `/api/v1/contracts/read`      | [`contracts-read-v1.md`](./contracts-read-v1.md)         |
 | Чтение списка договоров v2                  | POST | `/api/v2/contracts/read`      | [`contracts-read-v2.md`](./contracts-read-v2.md)         |
 | Карточка договора v1                        | POST | `/api/v1/contract/read`       | [`contract-read.md`](./contract-read.md)                 |
 | Карточка договора v2                        | POST | `/api/v2/contract/read`       | [`contract-read-v2.md`](./contract-read-v2.md)           |
